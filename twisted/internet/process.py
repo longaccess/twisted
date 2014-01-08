@@ -100,7 +100,8 @@ def detectLinuxBrokenPipeBehavior():
     os.close(w)
 
 # Call at import time
-detectLinuxBrokenPipeBehavior()
+if sys.platform.startswith('linux'):
+    detectLinuxBrokenPipeBehavior()
 
 
 class ProcessWriter(abstract.FileDescriptor):
